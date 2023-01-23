@@ -9,22 +9,15 @@
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include <ESP8266WebServer.h>
 
-#ifndef STASSID
-#define STASSID "JoSa"                //Enter your own SSID
-#define STAPSK "bienvenue"            //Enter your WiFi password
-#endif
+#include "secrets.h"  //Add Your WLAN Credentials in here.
 
 #define RELAY1          0             //Enter your relay1 pin
 #define RELAY2          2             //Enter your relay2 pin
 #define ON              LOW           //Define active low or active high for relays
 #define OFF             HIGH          //Define active low or active high for relays
 #define NumberOfRelays  2             //Define the number of relays (1 or 2)
-
-const char* ssid = STASSID;
-const char* password = STAPSK;
-
-
 
 
 void setup() {
@@ -99,11 +92,12 @@ void setup() {
 
 void loop() {
   ArduinoOTA.handle();
-  
+  /*
   digitalWrite(RELAY1, ON);   //Some tests before http request handling
   digitalWrite(RELAY2, OFF);
   delay(5000);
   digitalWrite(RELAY1, OFF);
   digitalWrite(RELAY2, ON);
   delay(5000);                //tests
+  */
 }
