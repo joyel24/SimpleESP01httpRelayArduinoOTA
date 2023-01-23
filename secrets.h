@@ -1,6 +1,6 @@
 #ifndef STASSID
-#define STASSID "yourssid"
-#define STAPSK "yourpassword"
+#define STASSID "JoSa"
+#define STAPSK "bienvenue"
 #endif
 
 const char *ssid = STASSID;
