@@ -36,9 +36,10 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("Connection Failed! Rebooting...");
-    delay(5000);
-    ESP.restart();
+    Serial.println("Connection Failed! Retry...");
+    delay(1000);
+    WiFi.begin(ssid, password);
+    //ESP.restart();
   }
   #include "OTA.h"
 }
