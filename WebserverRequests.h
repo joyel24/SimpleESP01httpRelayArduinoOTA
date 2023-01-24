@@ -14,5 +14,12 @@ void handleNotFound() {
 
 //on GET /
 void handleRoot() {
-  server.send(200, "text/plain", "hello from esp8266!\r\n");
+  server.send(200, "text/html", "" "<h1><center><br> <a href=\"/ON1\">RELAY 1 ON</a></center></h1>");
+}
+
+//on GET /ON1
+void Relay1_ON() {
+  digitalWrite(RELAY1, ON);
+  server.sendHeader("Location", String("/"), true);
+  server.send ( 302, "text/plain", "");
 }
