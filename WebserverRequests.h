@@ -56,7 +56,7 @@ void Relay1_ON() {
   server.sendHeader("Location", String("/"), true);   //  Redirects to
   server.send ( 302, "text/plain", "");               //  home
 }
-//on GET /Off1
+//on GET /OFF1
 void Relay1_OFF() {
   digitalWrite(RELAY1, OFF);
   server.sendHeader("Location", String("/"), true);
@@ -68,7 +68,7 @@ void Relay2_ON() {
   server.sendHeader("Location", String("/"), true);
   server.send ( 302, "text/plain", "");
 }
-//on GET /Off2
+//on GET /OFF2
 void Relay2_OFF() {
   digitalWrite(RELAY2, OFF);
   server.sendHeader("Location", String("/"), true);
