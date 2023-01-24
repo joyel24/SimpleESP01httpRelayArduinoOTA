@@ -13,13 +13,14 @@
 
 #include "secrets.h"  //Add Your WLAN Credentials in this file
 
-
 #define RELAY1          0             //Enter your relay1 pin
 #define RELAY2          2             //Enter your relay2 pin
 #define ON              LOW           //Define active low or active high for relays
 #define OFF             HIGH          //Define active low or active high for relays
 #define NumberOfRelays  2             //Define the number of relays (1 or 2)
 
+ESP8266WebServer server(80);          //http port
+#include "WebserverRequests.h"
 
 void setup() {
   digitalWrite(RELAY1, OFF);          //Set default state to OFF
@@ -41,12 +42,17 @@ void setup() {
     WiFi.begin(ssid, password);
     //ESP.restart();
   }
-  #include "OTA.h"
+  #include "OTA.h"  //include OTA to handle ARDUINO IDE uploade code capability
+  
+  server.onNotFound(handleNotFound);
+  server.on("/", handleRoot);
+  server.begin();
 }
 
 
 void loop() {
-  ArduinoOTA.handle();
+  ArduinoOTA.handle();        //OTA update for Arduino IDE [OTA.h]
+  server.handleClient();
   /*
   digitalWrite(RELAY1, ON);   //Some tests before http request handling
   digitalWrite(RELAY2, OFF);
