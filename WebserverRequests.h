@@ -16,7 +16,7 @@ void handleNotFound() {
 void handleRoot() {
   //If there is only one relay
   if (NumberOfRelays == 1){
-    String answer = "<h1 style=font-size:100px> <center> <br>RELAY 1:<a href=\"/ON1\">";
+    String answer = "<h1 style=font-size:100px> <center> <br>RELAY 1 <a href=\"/ON1\">";
     //Show lightblue background in the ON RELAY1 button if Relay is already on
     if (digitalRead(RELAY1) == ON){
       answer += "<button style=font-size:100px\;background-color:lightblue>ON</button></a></pre> </pre><a href=\"/OFF1\"><button style=font-size:100px>OFF</button></a><br>";
@@ -30,7 +30,7 @@ void handleRoot() {
   }
   //If there are 2 relays
   else if(NumberOfRelays == 2){
-    String answer = "<h1 style=font-size:100px> <center> <br>RELAY 1:<a href=\"/ON1\">";
+    String answer = "<h1 style=font-size:100px> <center> <br>RELAY 1 <a href=\"/ON1\">";
     if (digitalRead(RELAY1) == ON){
       answer += "<button style=font-size:100px\;background-color:lightblue>ON</button></a></pre> </pre><a href=\"/OFF1\"><button style=font-size:100px>OFF</button></a><br>";
     }
@@ -39,10 +39,10 @@ void handleRoot() {
     }
     
     if (digitalRead(RELAY2) == ON){
-      answer += "RELAY 2:<a href=\"/ON2\"><button style=font-size:100px\;background-color:lightblue>ON</button></a></pre> </pre><a href=\"/OFF2\"><button style=font-size:100px>OFF</button></a></center> </h1>";
+      answer += "RELAY 2 <a href=\"/ON2\"><button style=font-size:100px\;background-color:lightblue>ON</button></a></pre> </pre><a href=\"/OFF2\"><button style=font-size:100px>OFF</button></a></center> </h1>";
     }
     else if(digitalRead(RELAY2) == OFF){
-      answer += "RELAY 2:<a href=\"/ON2\"><button style=font-size:100px>ON</button></a></pre> </pre><a href=\"/OFF2\"><button style=font-size:100px\;background-color:lightblue>OFF</button></a></center> </h1>";
+      answer += "RELAY 2 <a href=\"/ON2\"><button style=font-size:100px>ON</button></a></pre> </pre><a href=\"/OFF2\"><button style=font-size:100px\;background-color:lightblue>OFF</button></a></center> </h1>";
     }
     
     //wihtout conditions, the answer looks like : server.send(200, "text/html", "<h1 style=font-size:100px> <center> <br>RELAY 1:<a href=\"/ON1\"><button style=font-size:100px\;background-color:lightblue>ON</button></a></pre> </pre><a href=\"/OFF1\"><button style=font-size:100px>OFF</button></a><br>RELAY 2:<a href=\"/ON2\"><button style=font-size:100px>ON</button></a></pre> </pre><a href=\"/OFF2\"><button style=font-size:100px>OFF</button></a></center> </h1>");  
