@@ -43,24 +43,19 @@ void setup() {
     //ESP.restart();
   }
   #include "OTA.h"  //include OTA to handle ARDUINO IDE uploade code capability
-  
+
+  //Read the ESP8266WebServer library documentation to understand
   server.onNotFound(handleNotFound);
   server.on("/", handleRoot);
   server.on("/ON1", Relay1_ON);
   server.on("/OFF1", Relay1_OFF);
+  server.on("/ON2", Relay2_ON);
+  server.on("/OFF2", Relay2_OFF);
   server.begin();
 }
 
 
 void loop() {
   ArduinoOTA.handle();        //OTA update for Arduino IDE [OTA.h]
-  server.handleClient();
-  /*
-  digitalWrite(RELAY1, ON);   //Some tests before http request handling
-  digitalWrite(RELAY2, OFF);
-  delay(5000);
-  digitalWrite(RELAY1, OFF);
-  digitalWrite(RELAY2, ON);
-  delay(5000);                //tests
-  */
+  server.handleClient();      //Read the ESP8266WebServer library documentation to understand
 }
