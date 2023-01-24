@@ -14,12 +14,18 @@ void handleNotFound() {
 
 //on GET /
 void handleRoot() {
-  server.send(200, "text/html", "" "<h1><center><br> <a href=\"/ON1\">RELAY 1 ON</a></center></h1>");
+  server.send(200, "text/html", "<h1 style=font-size:100px> <center> <br> RELAY 1: <a href=\"/ON1\"> <button style=font-size:100px>ON</button></a> </pre> </pre> <a href=\"/OFF1\"><button style=font-size:100px> OFF </button></a> </center> </h1>");
 }
 
 //on GET /ON1
 void Relay1_ON() {
   digitalWrite(RELAY1, ON);
+  server.sendHeader("Location", String("/"), true);
+  server.send ( 302, "text/plain", "");
+}
+
+void Relay1_OFF() {
+  digitalWrite(RELAY1, OFF);
   server.sendHeader("Location", String("/"), true);
   server.send ( 302, "text/plain", "");
 }

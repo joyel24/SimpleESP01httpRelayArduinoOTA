@@ -47,6 +47,7 @@ void setup() {
   server.onNotFound(handleNotFound);
   server.on("/", handleRoot);
   server.on("/ON1", Relay1_ON);
+  server.on("/OFF1", Relay1_OFF);
   server.begin();
 }
 
