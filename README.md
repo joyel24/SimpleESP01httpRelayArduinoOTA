@@ -3,3 +3,6 @@ from Arduino IDE wirelessly
 
 Example of homepage :
 ![Image](https://raw.githubusercontent.com/joyel24/SimpleESP01httpRelayArduinoOTA/main/.readme/htmlExample.jpg)
+
+The kind of relay modules that I used : 
+![Image](https://github.com/joyel24/SimpleESP01httpRelayArduinoOTA/blob/main/.readme/esp01%20Relay%20Modules%20single%20%26%20dual.jpg?raw=true)
